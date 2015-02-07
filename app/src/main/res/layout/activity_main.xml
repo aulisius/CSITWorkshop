@@ -1,194 +1,185 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rel"
+    android:orientation="vertical"
     android:background="@drawable/background">
+    <Space
+        android:layout_gravity="fill"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="90dip"
+            android:inputType="number"
+            android:id="@+id/result"
+            android:layout_weight="1"
+            android:ems="20"
+
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="80dp"
+            android:id="@+id/button16"
+            android:layout_weight="1"
+            android:background="@drawable/clear"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button15"
+            android:layout_weight="1"
+            android:background="@drawable/divide"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button11"
+            android:layout_weight="1"
+            android:background="@drawable/seven"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button9"
+            android:background="@drawable/eight"
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button10"
+            android:layout_weight="1"
+            android:background="@drawable/nine"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button14"
+            android:layout_weight="1"
+            android:background="@drawable/multiply"
+            style="?android:attr/borderlessButtonStyle"
+            />
 
 
-    <Button
-        android:layout_width="250dip"
-        android:layout_height="80dip"
-        android:id="@+id/button3"
-        android:background="@drawable/zero"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/button4"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_alignParentBottom="true" />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="90dip"
-        android:layout_height="185dip"
-        android:id="@+id/button4"
-        android:background="@drawable/equal"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_alignTop="@+id/button5"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button5"
-        android:background="@drawable/three"
-        android:layout_above="@+id/button3"
-        android:layout_toLeftOf="@+id/button4"
-        android:enabled="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        style="?android:attr/borderlessButtonStyle"
-        />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button7"
+            android:background="@drawable/four"
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"
+            />
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button"
-        android:background="@drawable/two"
-        android:layout_above="@+id/button3"
-        android:layout_toLeftOf="@+id/button5"
-        android:layout_toStartOf="@+id/button5"
-        style="?android:attr/borderlessButtonStyle"
-        />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button6"
+            android:background="@drawable/five"
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"
+            />
 
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="80dp"
-        android:id="@+id/button2"
-        android:background="@drawable/one"
-        android:layout_alignTop="@+id/button"
-        android:layout_toLeftOf="@+id/button"
-        android:layout_toStartOf="@+id/button"
-        style="?android:attr/borderlessButtonStyle"
-        />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button8"
+            android:layout_weight="1"
+            android:background="@drawable/six"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button13"
+            android:layout_weight="1"
+            android:background="@drawable/minus"
+            style="?android:attr/borderlessButtonStyle"
+            />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button6"
-        android:background="@drawable/five"
-        android:layout_above="@+id/button5"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button7"
-        android:background="@drawable/four"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_below="@+id/button11"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button8"
-        android:background="@drawable/six"
-        android:layout_above="@+id/button4"
-        android:layout_toRightOf="@+id/button6"
-        android:layout_toEndOf="@+id/button6"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button9"
-        android:background="@drawable/eight"
-        android:layout_above="@+id/button6"
-        android:layout_toRightOf="@+id/button7"
-        android:layout_toEndOf="@+id/button7"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button10"
-        android:background="@drawable/nine"
-        android:layout_above="@+id/button8"
-        android:layout_toRightOf="@+id/button6"
-        android:layout_toEndOf="@+id/button6"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button11"
-        android:background="@drawable/seven"
-        android:layout_above="@+id/button6"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button12"
-        android:background="@drawable/plus"
-        android:layout_above="@+id/button4"
-        android:layout_toRightOf="@+id/button5"
-        android:layout_toEndOf="@+id/button5"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button13"
-        android:background="@drawable/minus"
-        android:layout_above="@+id/button12"
-        android:layout_alignLeft="@+id/button12"
-        android:layout_alignStart="@+id/button12"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button14"
-        android:background="@drawable/multiply"
-        android:layout_above="@+id/button10"
-        android:layout_toRightOf="@+id/button10"
-        android:layout_toEndOf="@+id/button10"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:id="@+id/button15"
-        android:background="@drawable/divide"
-        android:layout_above="@+id/button10"
-        android:layout_toRightOf="@+id/button9"
-        android:layout_toEndOf="@+id/button9"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <Button
-        android:layout_width="200dip"
-        android:layout_height="80dp"
-        android:id="@+id/button16"
-        android:background="@drawable/clear"
-        android:layout_above="@+id/button9"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        style="?android:attr/borderlessButtonStyle"
-        />
-
-    <EditText
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/result"
-        android:layout_above="@+id/button15"
-        android:layout_centerHorizontal="true"
-        android:editable="false" />
+        >
 
-</RelativeLayout>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button5"
+            android:layout_weight="1"
+            android:background="@drawable/three"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button"
+            android:background="@drawable/two"
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button2"
+            android:background="@drawable/one"
+            android:layout_weight="1"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:id="@+id/button12"
+            android:layout_weight="1"
+            android:background="@drawable/plus"
+            style="?android:attr/borderlessButtonStyle"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="80dip"
+            android:id="@+id/button3"
+            android:layout_weight="1"
+            android:background="@drawable/zero"
+            style="?android:attr/borderlessButtonStyle"
+            />
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="80dip"
+            android:layout_weight="1"
+            android:background="@drawable/equal_n"
+            style="?android:borderlessButtonStyle"/>
+    </LinearLayout>
+</GridLayout>
