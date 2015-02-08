@@ -1,102 +1,164 @@
 package com.example.faizaan.gallerydemo;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.animation.AnimationUtils;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.Gallery;
-import android.widget.Gallery.LayoutParams;
-import android.widget.ImageSwitcher;
-import android.widget.ImageView;
-import android.widget.ViewFlipper;
-import android.widget.ViewSwitcher;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class ImageGalleryExample extends Activity implements
-        AdapterView.OnItemSelectedListener, ViewSwitcher.ViewFactory {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+import java.util.regex.Pattern;
+
+public class MainActivity extends Activity {
+
+    ArrayList<Character> operators;
+
+    EditText res;
+    String expr;
+    char check;
+    int ln;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        setContentView(R.layout.main);
-
-        mSwitcher = (ImageSwitcher) findViewById(R.id.switcher);
-        mSwitcher.setFactory(this);
-        mSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,
-                android.R.anim.fade_in));
-        mSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this,
-                android.R.anim.fade_out));
-
-        Gallery g = (Gallery) findViewById(R.id.gallery);
-        ViewFlipper v = (ViewFlipper) findViewById(R.id.viewFlipper);
-
-        g.setAdapter(new ImageAdapter(this));
-        g.setOnItemSelectedListener(this);
+        setContentView(R.layout.activity_main);
+        res = (EditText) findViewById(R.id.result);
+        expr = res.getText().toString();
+        operators = new ArrayList<>();
+        operators.add('+');
+        operators.add('-');
+        operators.add('*');
+        operators.add('/');
     }
 
-    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
-        mSwitcher.setImageResource(mImageIds[position]);
+    public void addText(View v) {
+        Button b = (Button) v;
+        Editable str = res.getText();
+        ln = str.length();
+        check = b.getContentDescription().charAt(0);
+        if (!(ln > 0 && operators.contains(str.charAt(ln - 1)) && operators.contains(check))) {
+            expr = expr + b.getContentDescription().toString() + " ";
+            str.append(b.getContentDescription());
+            res.setText(str);
+        }
     }
 
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void calc(View v) {
+        String out = convert(expr);
+       /* out = out.replaceAll("\\s+","");*/
+        int output = evaluate(out);
+        res.setText(Integer.toString(output));
+        expr = Integer.toString(output);
+        //expr = ;*/
+    }
+    public static boolean isNumeric(String n){
+        if(n.equals(null)) return false;
+        for (char c : n.toCharArray())
+        {
+            if (!Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+    public int evaluate(String expr){
+        //String[] token = Pattern.compile("\\s+").split(expr);
+        int a = -1, b = -1;
+        for (int n = 1 ; n < expr.length(); n++) {
+            if (!Character.isDigit(expr.charAt(n))) {
+                switch (expr.charAt(n)) {
+                    case '+':
+                        a += b;
+                        break;
+                    case '-':
+                        a -= b;
+                        break;
+                    case '*':
+                        a *= b;
+                        break;
+                    case '/':
+                        a /= b;
+                        break;
+                    default:
+                        break;
+                }
+            } else if (a == -1) a = Character.digit(expr.charAt(n),10);
+            else b = Character.digit(expr.charAt(n),10);
+        }
+        return a;
+    }
+    public String convert(final String infixExpression) {
+        final String[] tokens = Pattern.compile("\\s+").split(infixExpression);
+        final Stack<String> operatorStack = new Stack<>();
+        final StringBuilder result = new StringBuilder();
+        for (final String token : tokens) {
+            if (token.equals("(")) operatorStack.push(token);
+            else if (token.equals(")")) {
+                String operator;
+                while (!"(".equals(operator = operatorStack.pop())) {
+                    append(result, operator);
+                }
+            } else if (Operator.isOperator(token)) {
+                if (!operatorStack.isEmpty() && Operator.isPrecedent(token, operatorStack.peek())) {
+                    append(result, operatorStack.pop());
+                }
+                operatorStack.push(token);
+            } else append(result, token);
+        }
+        while (!operatorStack.isEmpty()) {
+            append(result, operatorStack.pop());
+        }
+        return result.toString();
     }
 
-    public View makeView() {
-        ImageView i = new ImageView(this);
-        i.setBackgroundColor(0xFF000000);
-        i.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        i.setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT));
-        return i;
+    private static void append(final StringBuilder builder, String value) {
+        builder.append(' ').append(value);
     }
 
-    private ImageSwitcher mSwitcher;
+    enum Operator {
+        PLUS('+', 1, 2), MINUS('-', 1, 2), MULTIPLY('*', 3, 4), DIVIDE('/', 3, 4), EXPONENT('^', 6, 5);
 
-    public class ImageAdapter extends BaseAdapter {
-        public ImageAdapter(Context c) {
-            mContext = c;
+        private final char value;
+        private final int icpValue;
+        private final int ispValue;
+
+        Operator(char value, int icpValue, int ispValue) {
+            this.value = value;
+            this.icpValue = icpValue;
+            this.ispValue = ispValue;
         }
 
-        public int getCount() {
-            return mThumbIds.length;
+        private final static Map<String, Operator> operatorMap = new HashMap<>();
+
+        static {
+            for (Operator operator : Operator.values()) {
+                operatorMap.put(String.valueOf(operator.value), operator);
+            }
         }
 
-        public Object getItem(int position) {
-            return position;
+        private static Operator getOperator(final String operator) {
+            return operatorMap.get(operator);
         }
 
-        public long getItemId(int position) {
-            return position;
+        static boolean isOperator(final String operator) {
+            return getOperator(operator) != null;
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ImageView i = new ImageView(mContext);
-
-            i.setImageResource(mThumbIds[position]);
-            i.setAdjustViewBounds(true);
-            i.setLayoutParams(new Gallery.LayoutParams(
-                    LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-            i.setLayoutParams(new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-            i.setBackgroundResource(R.drawable.picture_frame);
-            return i;
+        private static int getIcpValue(final String value) {
+            final Operator operator = getOperator(value);
+            return operator == null ? 0 : operator.icpValue;
         }
 
-        private Context mContext;
+        private static int getIspValue(final String value) {
+            final Operator operator = getOperator(value);
+            return operator == null ? 0 : operator.ispValue;
+        }
+
+        static boolean isPrecedent(final String firstToken, final String secondToken) {
+            return getIcpValue(firstToken) < getIspValue(secondToken);
+        }
 
     }
-
-    private Integer[] mThumbIds = {
-            R.drawable.sample_thumb_0, R.drawable.sample_thumb_1,
-            R.drawable.sample_thumb_2, R.drawable.sample_thumb_3};
-
-    private Integer[] mImageIds = {
-            R.drawable.sample_0, R.drawable.sample_1, R.drawable.sample_2,
-            R.drawable.sample_3};
-
 }
