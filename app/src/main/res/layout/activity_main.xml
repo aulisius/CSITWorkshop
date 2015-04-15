@@ -1,216 +1,64 @@
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
     android:id="@+id/box">
-    <Space
-        android:layout_gravity="fill"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="90dip"
-            android:inputType="text"
-            android:id="@+id/result"
-            android:clickable="false"
-            android:focusable="false"
-            android:textSize="30sp"
-            android:textColor="#7dfff7"
 
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="0dip"
-            android:layout_height="80dip"
-            android:id="@+id/button16"
-            android:layout_weight="1"
-            android:background="@drawable/clear"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dip"
-            android:id="@+id/button15"
-            android:layout_weight="1"
-            android:background="@drawable/divide"
-            android:contentDescription="@string/divide"
-            android:onClick="addText"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button11"
-            android:layout_weight="1"
-            android:onClick="addText"
-            android:background="@drawable/seven"
-            android:contentDescription="@string/seven"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button9"
-            android:onClick="addText"
-            android:background="@drawable/eight"
-            android:contentDescription="@string/eight"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button10"
-            android:layout_weight="1"
-            android:onClick="addText"
-            android:background="@drawable/nine"
-            android:contentDescription="@string/nine"
-            style="?android:attr/borderlessButtonStyle"
-            />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button14"
-            android:layout_weight="1"
-            android:onClick="addText"
-            android:background="@drawable/multiply"
-            android:contentDescription="@string/multiply"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button7"
-            android:onClick="addText"
-            android:background="@drawable/four"
-            android:contentDescription="@string/four"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button6"
-            android:onClick="addText"
-            android:background="@drawable/five"
-            android:contentDescription="@string/five"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button8"
-            android:onClick="addText"
-            android:layout_weight="1"
-            android:background="@drawable/six"
-            android:contentDescription="@string/six"
-            style="?android:attr/borderlessButtonStyle"
-            />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:onClick="addText"
-            android:id="@+id/button13"
-            android:layout_weight="1"
-            android:background="@drawable/minus"
-            android:contentDescription="@string/minus"
-            style="?android:attr/borderlessButtonStyle"
-            />
-    </LinearLayout>
-
-    <LinearLayout
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        >
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="159dp"
+        android:textColor="#fffdffff"
+        style="@style/Base.Widget.AppCompat.EditText"
+        android:background="#ffe6ddec" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:onClick="addText"
-            android:id="@+id/button5"
-            android:layout_weight="1"
-            android:background="@drawable/three"
-            android:contentDescription="@string/three"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button"
-            android:background="@drawable/two"
-            android:contentDescription="@string/two"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button2"
-            android:background="@drawable/one"
-            android:onClick="addText"
-            android:contentDescription="@string/one"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle"
-            />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:id="@+id/button12"
-            android:onClick="addText"
-            android:layout_weight="1"
-            android:background="@drawable/plus"
-            android:contentDescription="@string/add"
-            style="?android:attr/borderlessButtonStyle"
-            />
-
-    </LinearLayout>
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
-        <Button
-            android:layout_width="0dip"
-            android:layout_height="80dip"
-            android:id="@+id/button3"
-            android:onClick="addText"
-            android:layout_weight="1"
-            android:background="@drawable/zero"
-            android:contentDescription="@string/zero"
-            style="?android:attr/borderlessButtonStyle"
-            />
-        <Button
-            android:layout_width="0dip"
-            android:layout_height="80dip"
-            android:layout_weight="1"
-            android:onClick="calc"
-            android:background="@drawable/equal_n"
-            style="?android:borderlessButtonStyle"/>
-    </LinearLayout>
-</GridLayout>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Converter"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:textColor="#ffffffff" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celsius"
+        android:id="@+id/radioButton"
+        android:textColor="#fffffff7"
+        style="@android:style/ButtonBar"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fahrenheit"
+        android:id="@+id/radioButton2"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignLeft="@+id/radioButton"
+        android:layout_alignStart="@+id/radioButton"
+        android:layout_marginTop="37dp"
+        android:textColor="#fffffff7"
+        style="@android:style/ButtonBar" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONVERT"
+        android:id="@+id/button"
+        android:layout_below="@+id/radioButton2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp" />
+</RelativeLayout>
+
