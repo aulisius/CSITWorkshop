@@ -5,6 +5,10 @@ of DCSE and DIST.
 # Features
 * Temperature converter
 
+# Contributions
+* Akil Adeshwar (Code)
+* Mohan Rajan (Design)
+
 # Final look
 
 ![Image of final app](https://github.com/faizaanceg/CSITWorkshop/blob/master/app/src/main/res/drawable/layout-2015-04-16-080136.png)
