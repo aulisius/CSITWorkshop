@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Converter</string>
     <string name="action_settings">Settings</string>
-    <string name="app_title">Converter</string>
     <string name="cel">Celsius</string>
     <string name="fah">Fahrenheit</string>
     <string name="button_title">Convert</string>
