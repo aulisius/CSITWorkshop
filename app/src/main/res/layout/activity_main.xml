@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Converter"
+        android:text="@string/app_title"
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -33,33 +33,36 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Celsius"
+        android:text="@string/cel"
         android:id="@+id/radioButton"
         android:textColor="#fffffff7"
         style="@android:style/ButtonBar"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="radioToggle" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fahrenheit"
+        android:text="@string/fah"
         android:id="@+id/radioButton2"
         android:layout_below="@+id/radioButton"
         android:layout_alignLeft="@+id/radioButton"
         android:layout_alignStart="@+id/radioButton"
         android:layout_marginTop="37dp"
         android:textColor="#fffffff7"
-        style="@android:style/ButtonBar" />
+        style="@android:style/ButtonBar"
+        android:onClick="radioToggle" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CONVERT"
+        android:text="@string/button_title"
         android:id="@+id/button"
         android:layout_below="@+id/radioButton2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp" />
+        android:layout_marginTop="55dp"
+        android:onClick="calc" />
 </RelativeLayout>
 
