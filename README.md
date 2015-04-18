@@ -11,4 +11,4 @@ of DCSE and DIST.
 
 # Final look
 
-![Image of final app](https://github.com/faizaanceg/CSITWorkshop/blob/master/app/src/main/res/drawable/layout-2015-04-16-080136.png)
+![Image of final app](https://github.com/faizaanceg/CSITWorkshop/blob/master/app/src/main/res/drawable/final_look.png)
