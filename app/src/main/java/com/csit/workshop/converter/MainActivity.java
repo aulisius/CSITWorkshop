@@ -1,4 +1,4 @@
-package com.example.faizaan.converter;
+package com.csit.workshop .converter;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -22,7 +22,6 @@ public class MainActivity extends Activity {
 
         cel.setChecked(true);
         fah.setChecked(false);
-
     }
 
     public void radioToggle(View v) {
@@ -40,16 +39,14 @@ public class MainActivity extends Activity {
         try {
 
             float n =  Float.parseFloat(num.getText().toString()), t;
-            if(!Float.isNaN(n)) {
+            if ( !Float.isNaN(n) ) {
                 t = cel.isChecked() ? (float) ((n - 32) * (0.55555555555)) : (float) (n * 1.8) + 32;
                 Toast.makeText( getApplicationContext(), Float.toString(t), Toast.LENGTH_LONG ).show();
             }
             else Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_LONG).show();
 
+        } catch(NumberFormatException e) { 
+            Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_SHORT).show();
         }
-        catch(NumberFormatException e){Toast.makeText(getApplicationContext(), "Wrong input", Toast.LENGTH_SHORT).show();}
-
-
-
     }
 }
